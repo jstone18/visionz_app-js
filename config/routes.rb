@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
   post 'logout', to: 'sessions#destroy'
 
+  get '/auth/:provider/callback', to: 'sessions#create'
+
   resources :users
-  
+
   root 'welcome#home'
 end

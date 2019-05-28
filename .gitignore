@@ -35,3 +35,6 @@
 
 # Ignore Gemfile.lock
 /Gemfile.lock
+
+# Ignore OmniAuth key file
+/.env
