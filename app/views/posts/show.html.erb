@@ -1,0 +1,8 @@
+<h2 class=""><%= @post.title %></h2>
+
+<p><%= @post.link %></p>
+<p><%= @post.description %></p>
+
+<%= link_to "Edit", edit_post_path(@post) %><br>
+<%= link_to "Delete", @post, method: :delete, data: { confirm: 'Are you sure?' } %><br>
+<%= link_to "All Inspirations", posts_path(@post) %>
