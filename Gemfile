@@ -18,8 +18,8 @@ gem 'jbuilder',                '2.7.0'
 gem 'bootsnap',                '~> 1.1'
 gem 'omniauth',                '~> 1.6'
 gem 'omniauth-github',         '~> 1.3'
-gem 'haml',                    '~> 5.1'
 gem 'paperclip',               '~> 6.1'
+
 group :development, :test do
   gem 'sqlite3', '1.3.13'
   gem 'byebug',  '9.0.6', platform: :mri
