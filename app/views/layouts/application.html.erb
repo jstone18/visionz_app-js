@@ -4,7 +4,7 @@
     <title>Visionz</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    
+
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Arima+Madurai:300,400,500|Megrim|Oleo+Script|Playball&display=swap" rel="stylesheet">
 
@@ -16,6 +16,8 @@
   <body>
     <%= render 'layouts/header' %>
     <div class="container">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
       <%= yield %>
       <%= render 'layouts/footer' %>
     </div>
