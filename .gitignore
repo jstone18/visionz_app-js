@@ -38,3 +38,6 @@
 
 # Ignore OmniAuth key file
 /.env
+
+# Ignore Public file
+/public
