@@ -5,6 +5,14 @@
 <p><%= @post.description %></p>
 <p><%= @post.user.name %></p>
 
+<h2><%= pluralize(@post.comments.count, "Comment") %></h2>
+  <% @comments.each do |comment| %>
+    <p>Username: <%= comment.user.name %></p>
+    <p><%= comment.content %></p>
+  <% end %>
+
+<%= render 'comments/form' %>
+
 <%= link_to "Edit", edit_post_path(@post) %><br>
 <%= link_to "Delete", @post, method: :delete, data: { confirm: 'Are you sure?' } %><br>
 <%= link_to "All Inspirations", posts_path(@post) %>
