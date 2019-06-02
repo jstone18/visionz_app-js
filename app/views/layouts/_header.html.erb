@@ -1,12 +1,14 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
-  <div class="container">
+<header class="wrapper clearfix">
+  <div class="logo">
     <%= link_to "Visionz", root_path, id: "logo" %>
     <nav>
-      <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Home", root_path %></li>
-        <li><%= link_to "Help",   '#' %></li>
-        <li><%= link_to "Log in", user_session_path %></li>
-      </ul>
+      <% if user_signed_in? %>
+        <%= link_to current_user.name, edit_user_registration_path %>
+        <%= link_to "Add New Inspiration", new_post_path, class: "button" %>
+      <% else %>
+        <%= link_to "Sign In", new_user_session_path %>
+        <%= link_to "Sign Up", new_user_registration_path, class: "button" %>
+      <% end %>
     </nav>
   </div>
 </header>
