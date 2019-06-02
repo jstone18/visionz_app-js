@@ -23,6 +23,7 @@ gem 'omniauth',                '~> 1.9'
 gem 'omniauth-facebook',       '~> 5.0'
 gem 'omniauth-twitter',        '~> 1.4'
 gem 'omniauth-github',         '~> 1.3'
+gem 'acts_as_votable',         '~> 0.12.0'
 
 
 
