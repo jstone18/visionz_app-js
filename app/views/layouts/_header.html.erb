@@ -1,6 +1,7 @@
 <header class="wrapper clearfix">
   <div class="logo">
-    <%= link_to "Visionz", root_path, id: "logo" %>
+    <%= link_to 'Visionz', root_path %>
+  </div>
     <nav>
       <% if user_signed_in? %>
         <%= link_to current_user.name, edit_user_registration_path %>
@@ -10,5 +11,4 @@
         <%= link_to "Sign Up", new_user_registration_path, class: "button" %>
       <% end %>
     </nav>
-  </div>
 </header>

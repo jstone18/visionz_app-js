@@ -1,23 +1,51 @@
-<%= image_tag @post.image.url(:medium) %>
-<h2 class=""><%= @post.title %></h2>
+<div id="post_show">
+  <h1><%= @post.title %></h1>
+  <p class="username">
+    Shared by <%= @post.user.name %> <%= time_ago_in_words(@post.created_at) %> ago
+  </p>
+  <div class="clearfix">
+    <div class="post_image_description">
+      <%= image_tag @post.image.url(:medium) %>
+      <div class="description">
+        <%= simple_format(@post.description) %>
+      </div>
+    </div>
+    <div class="post_data">
+      <%= link_to "Vist Link", @post.link, class: "button" %>
+      <%= link_to like_post_path(@post), method: :get, class: "data" do %>
+         <i class="fa fa-thumbs-o-up"></i>
+         <%= pluralize(@post.get_upvotes.size, "Like") %>
+      <% end %>
+      <%= link_to dislike_post_path(@post), method: :get, class: "data" do %>
+         <i class="fa fa-thumbs-o-down"></i>
+         <%= pluralize(@post.get_downvotes.size, "Dislike") %>
+      <% end %>
+      <p class="data">
+        <i class="fa fa-comments-o"></i>
+        <%= pluralize(@post.comments.count, "Comment") %>
+      </p>
+      <% if @post.user == current_user %>
+        <%= link_to "Edit", edit_post_path(@post), class: "data" %>
+        <%= link_to "Delete", post_path(@post), method: :delete, data: { confirm: 'Are you sure?' }, class: "data" %>
+      <% end %>
+    </div>
+  </div>
+</div>
 
-<p><%= @post.link %></p>
-<p><%= @post.description %></p>
-<p><%= @post.user.name %></p>
-
-<p><%= @post.get_upvotes.size %> Likes</p>
-<p><%= @post.get_downvotes.size %> Dislikes</p>
-<p><%= link_to "Like", like_post_path(@post), method: :get %></p>
-<p><%= link_to "Dislike", dislike_post_path(@post), method: :get %></p>
-
-<h2><%= pluralize(@post.comments.count, "Comment") %></h2>
-  <% @comments.each do |comment| %>
-    <p>Username: <%= comment.user.name %></p>
-    <p><%= comment.content %></p>
-  <% end %>
-
-<%= render 'comments/form' %>
-
-<%= link_to "Edit", edit_post_path(@post) %><br>
-<%= link_to "Delete", @post, method: :delete, data: { confirm: 'Are you sure?' } %><br>
-<%= link_to "All Inspirations", posts_path(@post) %>
+<div id="comments">
+  <h2 class="comment_count"><%= pluralize(@post.comments.count, "Comment") %></h2>
+  <div class="container">
+    <div class="dialogbox">
+      <% @comments.each do |comment| %>
+        <p class="username"><%= comment.user.name %></p>
+        <div class="body">
+          <span class="tip tip-up"></span>
+          <div class="message">
+          <span><%= comment.content %></span>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <%= render 'comments/form' %>
+</div>

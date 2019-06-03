@@ -1,10 +1,28 @@
-<div class="post_index">
-  <% @posts.each do |post| %>
-    <%= link_to (image_tag post.image.url(:small)) %>
-    <h2><%= link_to post.title, post %></h2>
-    <p><%= post.comments.count %> Comments</p>
-    <p><%= post.get_likes.size %> Likes</p>
-  <% end %>
+<% if user_signed_in? %>
+  <div id="intro">
+    <p>Hello <%= current_user.name %></p>
+    <span>Share your inspirations and see what's inspiring others!</span>
+  </div>
+<% end %>
 
-  <%= link_to "Add New Inspiration", new_post_path %>
+<div id="posts">
+  <% @posts.each do |post| %>
+    <div class="post">
+      <div class="post_image">
+        <%= link_to (image_tag post.image.url(:small)) %>
+      </div>
+      <div class="post_content">
+        <h2 class="title"><%= link_to post.title, post %></h2>
+        <div class="data clearfix">
+          <p class="username">Shared by <%= post.user.name %></p>
+            <span class="buttons">
+              <i class="fa fa-comments-o"></i>
+              <%= post.comments.count %>
+              <i class="fa fa-thumbs-o-up"></i>
+              <%= post.get_likes.size %>
+            </span>
+        </div>
+      </div>
+    </div>
+  <% end %>
 </div>
