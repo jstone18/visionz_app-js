@@ -79,6 +79,10 @@ GEM
       railties (>= 4.1.0, < 6.0)
       responders
       warden (~> 1.2.3)
+    dotenv (2.7.2)
+    dotenv-rails (2.7.2)
+      dotenv (= 2.7.2)
+      railties (>= 3.2, < 6.1)
     erubi (1.8.0)
     execjs (2.7.0)
     faker (1.7.3)
@@ -292,6 +296,7 @@ DEPENDENCIES
   carrierwave (= 1.2.2)
   coffee-rails (= 4.2.2)
   devise (~> 4.6)
+  dotenv-rails
   faker (= 1.7.3)
   guard (= 2.14.1)
   guard-minitest (= 2.4.6)
