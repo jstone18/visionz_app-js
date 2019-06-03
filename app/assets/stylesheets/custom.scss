@@ -2,6 +2,8 @@
  *= require_self
  */
 
+	// Universal
+
 body {
 	font-family: 'Titillium Web', sans-serif;
 	font-weight: 100;
@@ -34,6 +36,8 @@ h1, h2, h3, h4, h5, h6 {
 	color: #9B9B9B;
 }
 
+	// Header
+
 header {
 	width: 100%;
 	padding: 2rem 0;
@@ -63,7 +67,7 @@ header {
 	}
 }
 
-// Home
+	// Home
 
 #intro {
 	margin: 2.75rem 0 1.75rem 0;
@@ -127,7 +131,8 @@ header {
 	}
 }
 
-// post
+// Posts
+
 #post_show {
 	padding-top: 2rem;
 	.post_image_description {
@@ -235,6 +240,8 @@ header {
 		color: #969696;
 	}
 }
+
+	// Comments
 
 #comments {
 	padding-bottom: 4rem;
