@@ -41,3 +41,6 @@
 
 # Ignore Public file
 /public
+
+# Ignore image files
+/app/assets/images

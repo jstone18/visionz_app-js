@@ -1,3 +1,4 @@
+<!-- Profile info section -->
 <div class="user-profile">
   <div class="profile row">
     <div class="col-md-4 avatar">
@@ -5,13 +6,10 @@
         <%= image_tag("avatar_png_71508") %>
       </div>
     </div>
-
     <div class="col-md-8 basic-info">
       <div class="user-wrapper">
-        <h2 class="username">luanotes</h2>
-        <a class="edit-profile">
-          <button>Edit Profile</button>
-        </a>
+        <h2 class="username"><%= current_user.name %></h2>
+        <%= link_to "Edit Profile", edit_user_path(current_user), class: "edit-profile button" %>
       </div>
       <ul class="posts">
         <li><span>12</span> posts</li>
@@ -19,7 +17,36 @@
         <li><span>345</span> following</li>
       </ul>
       <h2 class="name">Luan Nguyen</h2>
-      <a class="website">luanotes.com</a>
+      <a class="email"><%= current_user.email %></a>
     </div>
+  </div>
+</div>
+
+<!-- Profile tabs section -->
+<div class="user-tabs">
+  <a class="tab active" href="">
+    <i class="fa fa-th"></i>
+    POSTS
+  </a>
+  <a class="tab" href="">
+    <i class="fa fa-bookmark"></i>
+    SAVED
+  </a>
+  <a class="tab" href="">
+    <i class="fa fa-tag"></i>
+    TAGGED
+  </a>
+</div>
+
+<!-- Profile image section -->
+<div class="user-images">
+  <div class="wrapper">
+    <%= image_tag("coolcat") %>
+  </div>
+  <div class="wrapper">
+    <%= image_tag("sonic") %>
+  </div>
+  <div class="wrapper">
+    <%= image_tag("spiderman") %>
   </div>
 </div>
