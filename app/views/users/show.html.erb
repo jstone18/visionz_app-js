@@ -12,11 +12,10 @@
         <%= link_to "Edit Profile", edit_user_path(current_user), class: "edit-profile button" %>
       </div>
       <ul class="posts">
-        <li><span>12</span> posts</li>
+        <li><span><%= pluralize(@posts.count, "post") %></span></li>
         <li><span>195</span> followers</li>
         <li><span>345</span> following</li>
       </ul>
-      <h2 class="name">Luan Nguyen</h2>
       <a class="email"><%= current_user.email %></a>
     </div>
   </div>
@@ -38,15 +37,11 @@
   </a>
 </div>
 
-<!-- Profile image section -->
+<!-- Profile images section -->
 <div class="user-images">
-  <div class="wrapper">
-    <%= image_tag("coolcat") %>
-  </div>
-  <div class="wrapper">
-    <%= image_tag("sonic") %>
-  </div>
-  <div class="wrapper">
-    <%= image_tag("spiderman") %>
-  </div>
+  <% @posts.each do |post|%>
+    <div class="wrapper">
+      <%=image_tag post.image.url %>
+    </div>
+  <% end %>
 </div>

@@ -1,6 +1,6 @@
 class User < ApplicationRecord
 
-  has_many :posts
+  has_many :posts, dependent: :destroy
   has_many :comments, through: :posts
 
   devise :database_authenticatable, :registerable, :omniauthable,
@@ -8,6 +8,9 @@ class User < ApplicationRecord
 
   before_save { self.email = email.downcase}
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+
+  has_attached_file :image, styles: { medium: "700x500#", small: "350x250>", thumb: "200x200>" }
+  validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
   validates :name, presence: true, length: { maximum: 20 }
   validates :email, presence: true, length: { maximum: 50 }, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
