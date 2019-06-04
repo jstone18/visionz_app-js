@@ -131,6 +131,39 @@ header {
 	}
 }
 
+// Pagination
+
+.pagination {
+  padding: 3px;
+  margin: 3px;
+	margin-left: 12px;
+}
+.pagination a {
+  padding: 2px 5px 2px 5px;
+  margin: 2px;
+  border: 1px solid #9B9B9B;
+  text-decoration: none;
+  color: #9B9B9B;
+}
+.pagination a:hover, .pagination a:active {
+  border: 1px solid #333233;
+  color: #333233;
+}
+.pagination span.current {
+  padding: 2px 5px 2px 5px;
+  margin: 2px;
+  border: 1px solid #333233;
+  font-weight: bold;
+  background-color: #000099;
+  color: #FFF;
+}
+.pagination span.disabled {
+  padding: 2px 5px 2px 5px;
+  margin: 2px;
+  border: 1px solid #eee;
+  color: #ddd;
+}
+
 // Posts
 
 #post_show {
