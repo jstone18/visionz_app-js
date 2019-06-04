@@ -1,7 +1,7 @@
 <div id="post_show">
   <h1><%= @post.title %></h1>
   <p class="username">
-    Shared by <%= @post.user.name %> <%= time_ago_in_words(@post.created_at) %> ago
+    Shared by <%= link_to @post.user.name, user_path(@post.user) %> <%= time_ago_in_words(@post.created_at) %> ago
   </p>
   <div class="clearfix">
     <div class="post_image_description">

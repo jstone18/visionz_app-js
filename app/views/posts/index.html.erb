@@ -18,7 +18,7 @@
         <h2 class="title"><%= link_to post.title, post %></h2>
         <div class="data clearfix">
           <p class="username">
-            Shared by <%= post.user.name %>
+            Shared by <%= link_to post.user.name, user_path(post.user) %>
           </p>
           <span class="buttons">
             <i class="fa fa-comments-o"></i>

@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def show
-    @posts = current_user.posts.order(created_at: :desc)
+    @posts = @user.posts.order(created_at: :desc)
   end
 
   def new
