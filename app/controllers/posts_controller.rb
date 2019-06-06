@@ -12,10 +12,13 @@ class PostsController < ApplicationController
 
   def show
     @comments = Comment.where(post_id: @post)
+    # if @post.user != @user
+    if params[:user_id].to_i != @post.user_id
+      redirect_to posts_path
+    end
   end
 
   def new
-    # @post = current_user.posts.build
      @post = Post.new(user_id: params[:user_id])
   end
 
