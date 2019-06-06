@@ -8,6 +8,7 @@
       <%= image_tag @post.image.url(:medium) %>
       <div class="description">
         <%= simple_format(@post.description) %>
+        <p>Category: <%= @post.category %></p>
       </div>
     </div>
     <div class="post_data">
