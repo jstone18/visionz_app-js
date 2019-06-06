@@ -2,7 +2,9 @@ class Post < ApplicationRecord
 
   acts_as_votable
   belongs_to :user
+
   has_many :comments
+  has_many :users, through: :comments
 
   validates :title, presence: true, length: { minimum: 3 }, length: { maximum: 25 }
   validates :description, presence: true
