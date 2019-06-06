@@ -8,13 +8,18 @@
     </div>
     <div class="col-md-8 basic-info">
       <div class="user-wrapper">
-        <h2 class="username"><%= @user.name %></h2>
+        <h2 class="username"><%= @user.username %></h2>
         <%= edit_profile %>
       </div>
       <ul class="posts">
         <li><span><%= pluralize(@posts.count, "post") %></span></li>
       </ul>
+      <h2 class="name"><%= @user.name %></h2>
       <a class="email"><%= @user.email %></a>
+      <div class="bio-box">
+        <h2 class="bio">Bio:</h2>
+        <p><%= @user.bio %></p>
+      </div>
     </div>
   </div>
 </div>
