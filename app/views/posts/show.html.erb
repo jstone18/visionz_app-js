@@ -1,7 +1,7 @@
 <div id="post_show">
   <h1><%= @post.title %></h1>
   <p class="username">
-    Shared by <%= link_to @post.user.name, user_path(@post.user) %> <%= time_ago_in_words(@post.created_at) %> ago
+    Shared by <%= link_to @post.user.name, user_path(@post.user), class: "name" %> <%= time_ago_in_words(@post.created_at) %> ago
   </p>
   <div class="clearfix">
     <div class="post_image_description">
@@ -37,7 +37,7 @@
   <div class="container">
     <div class="dialogbox">
       <% @comments.each do |comment| %>
-        <p class="username"><%= comment.user.name %></p>
+        <p class="username"><%= link_to comment.user.name, user_path(@post.user), class: "name" %></p>
         <div class="body">
           <span class="tip tip-up"></span>
           <div class="message">
