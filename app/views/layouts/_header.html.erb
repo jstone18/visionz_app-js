@@ -3,6 +3,12 @@
     <%= link_to 'Visionz', root_path %>
   </div>
     <nav>
+      <div class="search">
+        <%= form_tag(@post) do %>
+        <%= text_field_tag :title %>
+        <%= submit_tag "Search" %>
+        <% end %>
+      </div>
       <% if user_signed_in? %>
         <%= link_to current_user.name, user_path(current_user) %>
         <%= link_to "Get Inspired", root_path, class: "button" %>
