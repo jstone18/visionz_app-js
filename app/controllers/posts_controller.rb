@@ -5,9 +5,10 @@ class PostsController < ApplicationController
   def index
     if params[:author_id]
       @posts = Author.find(params[:author_id]).posts.paginate(:page => params[:page], per_page: 9)
-    else
+    elsif
       @posts = Post.order("created_at DESC").paginate(:page => params[:page], per_page: 9)
     end
+    @posts = Post.search(params[:search]).paginate(:page => params[:page], per_page: 9)
   end
 
   def show

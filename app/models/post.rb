@@ -11,6 +11,13 @@ class Post < ApplicationRecord
   validates :image, presence: true
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
+  def self.search(search)
+    if search
+      where(["category LIKE ?", "%#{search}%"])
+    else
+      self.all
+    end
+  end
 
 
 end
