@@ -5,10 +5,9 @@ class PostsController < ApplicationController
   def index
     if params[:author_id]
       @posts = Author.find(params[:author_id]).posts.paginate(:page => params[:page], per_page: 9)
-    elsif
+    else
       @posts = Post.order("created_at DESC").paginate(:page => params[:page], per_page: 9)
     end
-    @posts = Post.search(params[:search]).paginate(:page => params[:page], per_page: 9)
   end
 
   def show
@@ -28,6 +27,7 @@ class PostsController < ApplicationController
     @post = current_user.posts.build(post_params)
 
     if @post.save
+
       redirect_to user_post_path(@post.user, @post)
     else
       render :new
@@ -63,7 +63,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :link, :description, :category, :image, :user_id)
+    params.require(:post).permit(:title, :link, :description, :image, :user_id)
   end
 
   def find_post
