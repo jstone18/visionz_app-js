@@ -1,14 +1,16 @@
 <div id="post_show">
+
   <h1><%= @post.title %></h1>
   <p class="username">
-    Shared by <%= link_to @post.user.name, user_path(@post.user), class: "name" %> <%= time_ago_in_words(@post.created_at) %> ago
+    Shared by <%= link_to @post.user.name, user_path(@post.user), class: "name" %> <%= posted_at %> ago
   </p>
+
   <div class="clearfix">
     <div class="post_image_description">
       <%= image_tag @post.image.url(:medium) %>
       <div class="description">
         <%= simple_format(@post.description) %>
-        <p>Category: <%= @post.category %></p>
+        <%= @post.categories.name %>
       </div>
     </div>
     <div class="post_data">
@@ -25,10 +27,8 @@
         <i class="fa fa-comments-o"></i>
         <%= pluralize(@post.comments.count, "Comment") %>
       </p>
-      <% if @post.user == current_user %>
-        <%= link_to "Edit", edit_post_path(@post), class: "data" %>
-        <%= link_to "Delete", post_path(@post), method: :delete, data: { confirm: 'Are you sure?' }, class: "data" %>
-      <% end %>
+      <%= edit_post %>
+      <%= delete_post %>
     </div>
   </div>
 </div>
