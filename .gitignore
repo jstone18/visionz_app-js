@@ -30,8 +30,6 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 
-# Ignore all db files
-/db
 
 # Ignore Gemfile.lock
 /Gemfile.lock
@@ -47,3 +45,7 @@
 
 # Ignore Gemfile.lock
 /Gemfile.lock
+
+# Ignore db files
+db/schema.rb
+db/seeds.rb

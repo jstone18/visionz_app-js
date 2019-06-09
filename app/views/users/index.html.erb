@@ -1,4 +1,8 @@
-<h1>All users</h1>
+<div id="intro">
+  <h1>All users</h1>
+</div>
+
+<%= will_paginate %>
 
 <div class="user-profile">
   <div class="profile row">
@@ -7,12 +11,7 @@
           <ul class="all-users">
             <% @users.each do |user| %>
             <li>
-              <% if user.avatar.exists? %>
-                <%= image_tag user.avatar.url, class: "avatar" %>
-              <% else %>
-                <%= image_tag "avatar_png_71508", class: "avatar" %>
-              <% end %>
-              <%= link_to user.username, user %>
+              <%= render user %>
             </li>
             <% end %>
           </ul>

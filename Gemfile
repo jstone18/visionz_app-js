@@ -26,6 +26,7 @@ gem 'omniauth-github',         '~> 1.3'
 gem 'acts_as_votable',         '~> 0.12.0'
 gem 'kaminari',                '1.1.1'
 gem 'dotenv-rails'
+gem 'faker',                   '1.7.3'
 
 
 group :development, :test do

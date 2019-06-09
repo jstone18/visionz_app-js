@@ -192,6 +192,9 @@ a.tab{
 .all-users {
   list-style: none;
   margin: 0;
+  display: inline-block;
+  justify-content: flex-start;
+
   li {
     overflow: auto;
     padding: 20px 0;
