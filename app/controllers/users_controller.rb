@@ -1,5 +1,10 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:index, :edit, :update]
+
+  def index
+    @users = User.all
+  end
 
   def show
     @posts = @user.posts.order(created_at: :desc)
@@ -31,7 +36,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :username, :bio, :password, :avatar)
+    params.require(:user).permit(:name, :email, :username, :bio, :image, :password, :avatar)
   end
 
   def set_user
