@@ -1,14 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:index, :edit, :update, :destroy]
-  before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
-  before_action :correct_user, only: [:edit, :update]
-  before_action :admin_user, only: :destroy
+  before_action :authenticate_user!, only: [:edit, :update, :destroy]
 
-  def index
-    @users = User.paginate(:page => params[:page], per_page: 9)
-
-  end
 
   def show
     @posts = @user.posts.order(created_at: :desc)
@@ -53,22 +46,4 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  # Confirms a logged-in user
-  def logged_in_user
-    unless user_signed_in?
-      flash[:danger] = "Please log in."
-      redirect_to user_session_path
-    end
-  end
-
-  # Confirms the correct user.
-  def correct_user
-    @user = User.find(params[:id])
-    redirect_to(root_url) unless @user == current_user
-  end
-
-  # Confirms an admin user.
-  def admin_user
-    redirect_to(root_url) unless current_user.admin?
-  end
 end

@@ -5,7 +5,6 @@
     <nav>
       <% if user_signed_in? %>
         <%= link_to current_user.name, user_path(current_user) %>
-        <%= link_to "All Users", users_path %>
         <%= link_to "Get Inspired", root_path, class: "button" %>
         <%= link_to "Add New Inspiration", new_user_post_path(current_user), class: "button" %>
         <a href="<%= destroy_user_session_path %> "data-method="delete">Sign Out

@@ -11,6 +11,34 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
 	font-weight: 100;
+	line-height: 1;
+}
+
+h1 {
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+}
+
+h2 {
+  font-size: 1.2em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  font-weight: normal;
+  color: #777;
+}
+
+p {
+  font-size: 1.1em;
+  line-height: 1.7em;
+}
+
+.center {
+  text-align: center;
+}
+
+.center h1 {
+  margin-bottom: 10px;
 }
 
 .wrapper {
@@ -82,6 +110,19 @@ header {
 
 
 	// Home
+
+.welcome {
+	font-family: Bellefair;
+	font-weight: 400;
+}
+
+.welcome-title {
+	font-family: Sumana;
+}
+
+.signup-btn {
+	padding-top: 10px;
+}
 
 #intro {
 	margin: 2.75rem 0 1.75rem 0;
@@ -376,6 +417,32 @@ header {
   border: 1px solid #E4E4E4;
   background: #F8F9FA;
   border-radius: 0.3rem;
+}
+
+.footer{
+  font-size: 14px;
+  padding-top: 10px;
+	padding-bottom: 30px;
+	border-top: 1px solid #E4E4E4;
+	width: 100%;
+  ul{
+    padding-left: 0;
+     li{
+      display: inline;
+      padding-right: 15px;
+      color: #003569;
+    }
+  }
+	a {
+		text-decoration: none;
+		color: #333233;
+		&:hover {
+			color: #50A7C7;
+		}
+	}
+  p{
+    color: #999;
+  }
 }
 
 @import "users";

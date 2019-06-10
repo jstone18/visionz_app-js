@@ -12,7 +12,6 @@ class PostsController < ApplicationController
 
   def show
     @comments = Comment.where(post_id: @post)
-    # if @post.user != @user
     if params[:user_id].to_i != @post.user_id
       redirect_to posts_path
     end
@@ -27,7 +26,6 @@ class PostsController < ApplicationController
     @post = current_user.posts.build(post_params)
 
     if @post.save
-
       redirect_to user_post_path(@post.user, @post)
     else
       render :new

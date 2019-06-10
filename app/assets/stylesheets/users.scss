@@ -187,17 +187,3 @@ a.tab{
   height: 50px;
   border-radius: 50%;
 }
-
-
-.all-users {
-  list-style: none;
-  margin: 0;
-  display: inline-block;
-  justify-content: flex-start;
-
-  li {
-    overflow: auto;
-    padding: 20px 0;
-    border-bottom: 1px solid #efefef;
-  }
-}
