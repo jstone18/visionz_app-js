@@ -1,7 +1,8 @@
 <% if user_signed_in? %>
   <div id="intro">
     <p>Hello <%= current_user.name %></p>
-    <span>Share your inspirations and see what's inspiring others!</span>
+    <span>Share your inspirations and see what's inspiring others!</span><br>
+    <span>There are currently <%= @posts.count %> inspiring visions being shared!</span>
   </div>
 <% end %>
 <div class="container">
