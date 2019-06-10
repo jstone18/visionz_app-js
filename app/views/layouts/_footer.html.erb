@@ -1,13 +1,5 @@
 <footer class="container footer">
   <nav class="navbar d-flex">
-    <% if user_signed_in? %>
-    <ul>
-      <li><%= link_to current_user.name, user_path(current_user) %></li>
-      <li><%= link_to "OTHER VISIONARIES", users_path %></li>
-      <li><a href="https://app.termly.io/document/privacy-policy/5c005572-fdab-4bf6-964e-e884ddef956b">PRIVACY</a></li>
-      <li>PROFILES</li>
-    </ul>
-    <% end %>
     <p> © 2019 VISIONZ </p>
   </nav>
 </footer>

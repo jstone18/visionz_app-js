@@ -6,6 +6,7 @@
     </div>
     <div class="col-sm-9">
       <p class="username"><%=current_user.name %></p>
+      <span><%= link_to "Delete account", edit_user_registration_path(current_user) %></span>
     </div>
   </div>
   <div class="form-group row">
