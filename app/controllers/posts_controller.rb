@@ -6,7 +6,7 @@ class PostsController < ApplicationController
     if params[:author_id]
       @posts = Author.find(params[:author_id]).posts.paginate(:page => params[:page], per_page: 9)
     else
-      @posts = Post.order("created_at DESC").paginate(:page => params[:page], per_page: 9)
+      @posts = Post.recent.paginate(:page => params[:page], per_page: 9)
     end
   end
 
