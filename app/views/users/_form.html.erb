@@ -1,4 +1,5 @@
 <%= form_with model: current_user, local: true, html: {class: "form-horizontal form-edit-user"} do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
   <div class="form-group row">
     <div class="col-sm-3 col-form-label">
       <%= profile_pic%>
