@@ -423,16 +423,12 @@ header {
 .footer{
   font-size: 14px;
   padding-top: 10px;
-	padding-bottom: 30px;
+	// padding-bottom: 30px;
 	border-top: 1px solid #E4E4E4;
-	width: 100%;
-  ul{
-    padding-left: 0;
-     li{
-      display: inline;
-      padding-right: 15px;
-      color: #003569;
-    }
+   li{
+    display: inline;
+    padding-right: 15px;
+    color: #003569;
   }
 	a {
 		text-decoration: none;

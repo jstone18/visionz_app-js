@@ -1,25 +1,27 @@
-<div class="clearfix">
+<div class="container">
   <div id="posts">
-    <div class="post">
-      <% @posts.each do |post| %>
-      <div class="post_image">
-        <%= link_to (image_tag post.image.url(:small)), user_post_path(post.user, post) %>
-      </div>
-      <div class="post_content">
-        <h2 class="title"><%= link_to post.title, user_post_path(post.user, post) %></h2>
-        <div class="data clearfix">
-          <p class="username">
-            Shared by <%= link_to post.user.name, user_path(post.user), class: "name" %>
-          </p>
-          <span class="buttons">
-            <i class="fa fa-comments-o"></i>
-            <%= post.comments.count %>
+    <span id="pagination">
+    </span>
+    <% @posts.each do |post| %>
+      <div class="post">
+        <div class="post_image">
+          <%= link_to (image_tag post.image.url(:small)), user_post_path(post.user, post) %>
+        </div>
+        <div class="post_content">
+          <h2 class="title"><%= link_to post.title, user_post_path(post.user, post) %></h2>
+          <div class="data clearfix">
+            <p class="username">
+              Shared by <%= link_to post.user.name, user_path(post.user), class: "name" %>
+            </p>
+            <span class="buttons">
+              <i class="fa fa-comments-o"></i>
+              <%= post.comments.count %>
               <i class="fa fa-thumbs-o-up"></i>
-            <%= post.get_likes.size %>
-          </span>
+              <%= post.get_likes.size %>
+            </span>
+          </div>
         </div>
       </div>
-      <% end %>
-    </div>
+    <% end %>
   </div>
 </div>

@@ -31,5 +31,4 @@ class Post < ApplicationRecord
     description.to_s.scan(/#\w+/).map{|name| name.gsub("#", "")}
   end
 
-
 end
