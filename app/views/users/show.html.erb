@@ -12,7 +12,7 @@
         <%= edit_profile %>
       </div>
       <ul class="posts">
-        <li><span><%= pluralize(@posts.count, "post") %></span></li>
+        <li><span><%= pluralize(@posts.count, "vision") %></span></li>
       </ul>
       <h2 class="name"><%= @user.name %></h2>
       <% if @user == current_user %>
