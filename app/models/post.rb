@@ -13,7 +13,7 @@ class Post < ApplicationRecord
   validates :title, presence: true, length: { maximum: 25 }
   validates :description, presence: true
 
-  has_attached_file :image, styles: { medium: "800x600", small: "350x250>" }
+  has_attached_file :image, styles: { medium: "800x600#", small: "350x250>" }
   validates :image, presence: true
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
