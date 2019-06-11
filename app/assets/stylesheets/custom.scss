@@ -101,10 +101,11 @@ header {
 }
 .search {
 	float: right;
-	padding: .2rem 1.25rem;
+	padding-left: 1rem;
 	radius: .3rem;
 	background: white;
 	color: #9B9B9B;
+
 }
 
 
@@ -444,5 +445,6 @@ header {
     color: #999;
   }
 }
+
 
 @import "users";

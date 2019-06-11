@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  authenticated :user do
+    root 'posts#index', as: :authenticated_root
+  end
+
+  root "welcome#home"
+  
   devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
 
   resources :users, only: [:index, :show, :edit, :update, :destroy] do
@@ -14,10 +20,6 @@ Rails.application.routes.draw do
     resources :comments
   end
 
-  authenticated :user do
-    root 'posts#index', as: :authenticated_root
-  end
-
-  root "welcome#home"
+  get 'search' => 'search#index'
 
 end
