@@ -15,7 +15,9 @@
         <li><span><%= pluralize(@posts.count, "post") %></span></li>
       </ul>
       <h2 class="name"><%= @user.name %></h2>
-      <a class="email"><%= @user.email %></a>
+      <% if @user == current_user %>
+        <a class="email"><%= @user.email %></a>
+      <% end %>
       <div class="bio-box">
         <h2 class="bio">Bio:</h2>
         <p><%= @user.bio %></p>
