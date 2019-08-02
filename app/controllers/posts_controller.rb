@@ -12,8 +12,10 @@ class PostsController < ApplicationController
 
   def show
     @comments = Comment.where(post_id: @post)
-    if params[:user_id].to_i != @post.user_id
-      redirect_to posts_path
+
+    respond_to do |format|
+      format.html
+      format.json {render json: @post}
     end
   end
 
