@@ -1,5 +1,10 @@
 <div id="post_show">
 
+  <p class="js-next" data-id="<%= @post.id %>">
+    <%= link_to "Prev", post_path(@post.prev) %> |
+    <%= link_to "Next", post_path(@post.next) %>
+  </p>
+
   <h1><%= @post.title %></h1>
   <p class="username">
     Shared by <%= link_to @post.user.name, user_path(@post.user), class: "name" %> <%= posted_at %> ago

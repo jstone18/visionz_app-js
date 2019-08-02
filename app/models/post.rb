@@ -31,4 +31,34 @@ class Post < ApplicationRecord
     description.to_s.scan(/#\w+/).map{|name| name.gsub("#", "")}
   end
 
+  def next
+    posts = post_ids_by_updated
+    post_index = posts.find_index(id)
+    next_post = post_index + 1
+
+    if next_post < posts.length
+      posts[next_post]
+    else
+      id
+    end
+  end
+
+  def prev
+    posts = post_ids_by_updated
+    post_index = posts.find_index(id)
+    prev_post = post_index - 1
+
+    if prev_post > 0
+      posts[prev_post]
+    else
+      id
+    end
+  end
+
+  private
+
+  def post_ids_by_updated
+    @post_ids ||= Post.order(updated_at: :desc).pluck(:id)
+  end
+
 end
