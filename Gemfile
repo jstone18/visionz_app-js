@@ -14,7 +14,6 @@ gem 'sass-rails',              '5.0.6'
 gem 'uglifier',                '3.2.0'
 gem 'coffee-rails',            '4.2.2'
 gem 'jquery-rails',            '4.3.1'
-gem 'turbolinks',              '5.0.1'
 gem 'jbuilder',                '2.7.0'
 gem 'bootsnap',                '~> 1.1'
 gem 'image_magick',            '~> 0.1.9'
@@ -27,6 +26,7 @@ gem 'acts_as_votable',         '~> 0.12.0'
 gem 'kaminari',                '1.1.1'
 gem 'dotenv-rails'
 gem 'faker',                   '1.7.3'
+gem 'active_model_serializers'
 
 
 group :development, :test do
