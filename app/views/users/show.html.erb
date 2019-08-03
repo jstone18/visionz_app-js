@@ -26,28 +26,34 @@
   </div>
 </div>
 
-<!-- Profile tabs section -->
+<!-- Buttons to Show Posts using AJAX GET request-->
 <div class="user-tabs">
-  <a class="tab active" href="<%= user_path(current_user) %>">
-    <i class="fa fa-th"></i>
-    POSTS
-  </a>
-  <a class="tab" href="<%= new_user_post_path(current_user) %>">
-    <i class="fa fa-bookmark"></i>
-    NEW IMAGE
-  </a>
-  <a class="tab" href="<%= user_path(current_user) %>">
-    <i class="fa fa-tag"></i>
-    TAGGED
-  </a>
-
+  <button id="js-post" class="primary-btn" data-uid="<%= @user.id %>" data-pid="<%= @post.id %>" type="button" name="button">Images</button><br>
+  <button id="js-post" class="primary-btn"  data-uid="<%= @user.id %>" data-pid="<%= @post.id %>" type="button" name="button">New Image</button>
 </div>
 
-<!-- Profile images section -->
+<!-- Container to render images  -->
 <div class="user-images">
-  <% @posts.each do |post|%>
-    <div class="wrapper">
-      <%= link_to (image_tag post.image.url(:medium)), user_post_path(post.user, post) %>
-    </div>
-  <% end %>
+  <div class="wrapper">
+
+  </div>
 </div>
+
+<!-- JS for Show Post button -->
+<script type="text/javascript" charset="utf8">
+  $(function() {
+    $("#js-post").on("click", function() {
+      const userId = $(this).data("uid");
+      $.get("/users/" + userId + ".json", function(data) {
+        let post = data.posts.map(p => {
+          return `
+            <div class="wrapper">
+              <img class="post-image" src="${p.image}"><br>
+            </div>
+          `
+        })
+        $(".user-images").html(post)
+      })
+    })
+  })
+</script>
