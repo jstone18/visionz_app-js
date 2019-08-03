@@ -27,6 +27,7 @@ gem 'kaminari',                '1.1.1'
 gem 'dotenv-rails'
 gem 'faker',                   '1.7.3'
 gem 'active_model_serializers'
+gem 'pry'
 
 
 group :development, :test do
