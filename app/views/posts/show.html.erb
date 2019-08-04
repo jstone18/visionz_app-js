@@ -15,7 +15,7 @@
       <%= image_tag @post.image.url(:medium) %>
       <div id="body-<%= @post.id %>" class="description">
         <%= truncate(@post.description, length: 150) %><br>
-        <button id="js-more" data-id="<%= @post.id %>" type="button" name="button">Read More...</button>
+        <button class="primary-btn" id="js-more" data-id="<%= @post.id %>" type="button" name="button">Read More...</button>
       </div>
     </div>
     <div class="post_data">

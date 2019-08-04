@@ -26,36 +26,12 @@
   </div>
 </div>
 
-<!-- Buttons to Show Posts using AJAX GET request-->
+<!-- Button to Show Posts using AJAX GET request-->
 <div class="user-tabs">
-  <button id="js-post" class="primary-btn" data-uid="<%= @user.id %>" data-pid="<%= @post.id %>" type="button" name="button">Images</button><br>
-  <button id="js-post" class="primary-btn"  data-uid="<%= @user.id %>" data-pid="<%= @post.id %>" type="button" name="button">New Image</button>
+  <button id="js-post" class="primary-btn" data-uid="<%= @user.id %>" data-pid="<%= @post.id %>" type="button" name="button">Show <%= @user.name %>'s Images</button>
 </div>
 
-<!-- Container to render images  -->
+<!-- Container to render images   -->
 <div class="user-images">
 
 </div>
-
-<!-- JS for Show Post button -->
-<script type="text/javascript" charset="utf8">
-  $(function() {
-    $("#js-post").on("click", function() {
-      const userId = $(this).data("uid");
-      $.get("/users/" + userId + ".json", function(data) {
-        let post = data.posts.map(p => {
-          return `
-            <div class="wrapper">
-              <h6 style="color:gray;text-align: center;"><u>${p.title}</u></h6>
-              <a href="<%= user_post_path(@user.posts, @post) %>">
-                <img src="${p.image}"><br>
-              </a>
-            </div>
-          `
-        })
-        $(".user-images").html(post)
-        $(".user-title").html(post)
-      })
-    })
-  })
-</script>
