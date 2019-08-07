@@ -28,7 +28,7 @@ class PostsController < ApplicationController
     @post = current_user.posts.build(post_params)
 
     if @post.save
-      redirect_to user_post_path(@post.user, @post)
+      render json: @post, status: 201
     else
       render :new
     end

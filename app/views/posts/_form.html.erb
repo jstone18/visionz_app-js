@@ -1,3 +1,5 @@
+<!-- Form for creating a new Vision -->
+
 <%= form_for(@post) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
 
@@ -20,11 +22,62 @@
 
     <div class="field">
       <%= f.label :image, class: "form-label" %><br>
-      <%= f.file_field :image %>
+      <%= f.file_field :image, class: "image-upload" %>
     </div><br>
 
     <div class="">
-      <%= f.submit "Submit", class: "btn btn-primary " %>
+      <%= f.submit "Create a Vision", class: "btn btn-primary " %>
     </div
 
 <% end %>
+
+<div id="postResult">
+  <h2 id="postTitle"></h2>
+  <p id="postBody"></p>
+  <div class="preview">
+
+  </div>
+</div>
+
+
+
+
+  <!-- <script type="text/javascript" charset="utf-8">
+    $(function() {
+      $("form").submit(function(event) {
+        event.preventDefault();
+
+        let values = $(this).serialize();
+        let posting = $.post('/posts', values);
+
+        posting.done(function(data) {
+          let post = data;
+          debugger;
+          $("postTitle").append(post["title"]);
+          $("postBody").append(post["description"]);
+        })
+      })
+    })
+  </script> -->
+
+
+
+
+
+
+
+
+<!-- <div class="container">
+  <div class="post">
+    <div class="post-image" id="post-image">
+
+      <div class="post-content">
+        <h2 class="title" id="post-decription"></h2>
+
+        <div class="data clearfix">
+          <p class="username" id="post-username"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->

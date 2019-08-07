@@ -14,8 +14,8 @@ class Post < ApplicationRecord
   validates :description, presence: true
 
   has_attached_file :image, styles: { medium: "800x600#", small: "350x250>" }
-  validates :image, presence: true
-  validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
+  # validates :image, presence: true
+  # validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
   def self.recent
     order("posts.updated_at DESC")
