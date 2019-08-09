@@ -29,6 +29,7 @@ gem 'faker',                   '1.7.3'
 gem 'active_model_serializers'
 gem 'pry'
 gem "omniauth-rails_csrf_protection"
+gem 'remotipart'
 
 
 group :development, :test do

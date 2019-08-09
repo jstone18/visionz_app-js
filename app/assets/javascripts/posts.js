@@ -14,13 +14,13 @@ $(document).ready(function() {
 class Post {
   constructor(json) {
     this.data = json
+    // debugger;
   };
 
   updateHTML() {
 
     $("#postTitle").text(this.data.title);
     $("#postBody").text(this.data.description);
-    $('.preview').html(`<img src="${this.data.image}>"`)
   };
 };
 
