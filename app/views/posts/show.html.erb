@@ -38,12 +38,12 @@
   </div>
 </div>
 
-<div id="comments">
-  <h2 class="comment_count"><%= pluralize(@post.comments.count, "Comment") %></h2>
-    <div class="dialogbox">
-      <% @comments.each do |comment| %>
-        <p id="postComment"><%= comment.user.name %> Says: <%= comment.content %></p>
-      <% end %>
-    </div><br>
-  <%= render 'comments/form' %>
-</div>
+
+<h3>Comments</h3>
+  <% if @post.comments.any? %>
+  <div class="post-comments">
+    <%= link_to "Load Comments", post_comments_path(@post), :class => 'load_comments' %>
+  </div>
+  <% else %>
+    There are no comments for this Thought
+  <% end %>

@@ -1,6 +1,19 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!
 
+  def index
+		@post = Post.find(params[:post_id])
+		@comments = Comment.all
+		@post_comments = @post.comments
+    render 'comments/index', :layout => false
+	end
+
+  def show
+    @comment = Comment.new
+    @comment.post_id = @post.id
+    @post_comments = @post.comments
+  end
+
   def create
     @post = Post.find(params[:post_id])
     @comment = Comment.create(params[:comment].permit(:content))
@@ -8,7 +21,7 @@ class CommentsController < ApplicationController
     @comment.post_id = @post.id
 
     if @comment.save
-      render json: @comment, status: 201
+      redirect_to post_path(@comment.post)
     else
       render :new
     end
