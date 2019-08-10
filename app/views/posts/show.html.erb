@@ -40,18 +40,10 @@
 
 <div id="comments">
   <h2 class="comment_count"><%= pluralize(@post.comments.count, "Comment") %></h2>
-  <div class="container">
     <div class="dialogbox">
       <% @comments.each do |comment| %>
-        <p class="username"><%= link_to comment.user.name, user_path(@post.user), class: "name" %></p>
-        <div class="body">
-          <span class="tip tip-up"></span>
-          <div class="message">
-          <span><%= comment.content %></span>
-          </div>
-        </div>
+        <p id="postComment"><%= comment.user.name %> Says: <%= comment.content %></p>
       <% end %>
-    </div>
-  </div>
+    </div><br>
   <%= render 'comments/form' %>
 </div>
