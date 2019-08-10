@@ -1,8 +1,25 @@
 $(document).ready(function() {
   $("a.load_comments").on("click", function(e) {
-    $.get(this.href).success(function(response) {
-      $("div.post-comments").html(response)
-    })
+    //LOAD COMMENTS VIA AJAX
+    $.ajax(({
+      url: this.href,
+      dataType: 'script'
+    }))
+
+    e.preventDefault();
+  })
+  
+  //CREATE COMMENTS VIA AJAX
+  $('#new_comment').on("submit", function(e) {
+    $.ajax({
+      type: "POST",
+      url: this.action,
+      data: $(this).serialize(),
+      success: function(response) {
+        $("#comment_content").val("");
+        var $ol = $("div.post-comments").html(response)
+      }
+    });
 
     e.preventDefault();
   })
