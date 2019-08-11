@@ -40,10 +40,15 @@
 
 
 <h3>Comments</h3>
-  <% if @post.comments.any? %>
   <div class="post-comments">
-    <%= link_to "Load Comments", post_comments_path(@post), :class => 'load_comments' %>
+    <% if @post.comments.any? %>
+        <%= link_to "Load All Comments", post_comments_path(@post), :class => 'load_comments' %>
+    <% else %>
+    <div class="no-comments">
+          There are no comments for this Vision
+        </div>
+    <% end %>
   </div>
-  <% else %>
-    There are no comments for this Thought
+  <% if signed_in? %>
+    <%= render 'comments/form', post: @post, comment: @comment %>
   <% end %>

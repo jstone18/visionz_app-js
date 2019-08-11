@@ -23,7 +23,8 @@ class CommentsController < ApplicationController
 
     if @comment.save
       # redirect_to post_path(@comment.post)
-      render 'comments/index', :layout => false
+      # render 'comments/index', :layout => false
+      render json: @comment, status: 201
     else
       render 'post/show'
     end
