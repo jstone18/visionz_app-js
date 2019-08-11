@@ -3,6 +3,6 @@
     <%= f.label "Reply to thread" %>
     <%= f.text_area :content, class: "textarea", required: true %>
 
-    <%= f.submit class: "button", id: "subBtn" %>
+    <%= f.submit class: "button", id: "subBtn", data: { disable_with: false } %>
 
 <% end %>
