@@ -5,7 +5,8 @@ class CommentsController < ApplicationController
 		@post = Post.find(params[:post_id])
 		@comments = Comment.all
 		@post_comments = @post.comments
-    render 'comments/index', :layout => false
+    # render 'comments/index', :layout => false
+    render :json => @post_comments
 	end
 
   def show
@@ -21,9 +22,10 @@ class CommentsController < ApplicationController
     @comment.post_id = @post.id
 
     if @comment.save
-      redirect_to post_path(@comment.post)
+      # redirect_to post_path(@comment.post)
+      render 'comments/index', :layout => false
     else
-      render :new
+      render 'post/show'
     end
   end
 
