@@ -1,8 +1,8 @@
 <div id="post_show">
 
   <p class="js-next" data-id="<%= @post.id %>">
-    <%= link_to "Prev", post_path(@post.prev) %> |
-    <%= link_to "Next", post_path(@post.next) %>
+    <%= link_to "Prev", post_path(@post.prev), class: "next-prev" %> |
+    <%= link_to "Next", post_path(@post.next), class: "next-prev" %>
   </p>
 
   <h1><%= @post.title %></h1>
@@ -38,17 +38,18 @@
   </div>
 </div>
 
-
-<h3>Comments</h3>
-  <div class="post-comments">
-    <% if @post.comments.any? %>
-        <%= link_to "Load All Comments", post_comments_path(@post), :class => 'load_comments' %>
-    <% else %>
-    <div class="no-comments">
-          There are no comments for this Vision
-        </div>
+<div id="comments">
+  <h3 class="comment_count"><%= pluralize(@post.comments.count, "Comment") %></h3>
+    <div class="post-comments">
+      <% if @post.comments.any? %>
+          <h5><%= link_to "Load All Comments", post_comments_path(@post), :class => 'load_comments' %></h5>
+      <% else %>
+      <div class="no-comments">
+            There are no comments for this Vision
+          </div>
+      <% end %>
+    </div>
+    <% if signed_in? %>
+      <%= render 'comments/form', post: @post, comment: @comment %>
     <% end %>
-  </div>
-  <% if signed_in? %>
-    <%= render 'comments/form', post: @post, comment: @comment %>
-  <% end %>
+</div>
