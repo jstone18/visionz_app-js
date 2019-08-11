@@ -15,6 +15,8 @@ class CommentsController < ApplicationController
     # @post_comments = @post.comments
     @user = User.find(params[:user_id])
 		@comments = @user.comments
+
+    # render json: => @post_comments
   end
 
   def create
