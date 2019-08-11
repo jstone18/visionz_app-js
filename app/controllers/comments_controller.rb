@@ -5,18 +5,13 @@ class CommentsController < ApplicationController
 		@post = Post.find(params[:post_id])
 		@comments = Comment.all
 		@post_comments = @post.comments
-    # render 'comments/index', :layout => false
     render :json => @post_comments
 	end
 
   def show
     @comment = Comment.new
     @comment.post_id = @post.id
-    # @post_comments = @post.comments
-    @user = User.find(params[:user_id])
-		@comments = @user.comments
-
-    # render json: => @post_comments
+    @post_comments = @post.comments
   end
 
   def create
@@ -26,8 +21,6 @@ class CommentsController < ApplicationController
     @comment.post_id = @post.id
 
     if @comment.save
-      # redirect_to post_path(@comment.post)
-      # render 'comments/index', :layout => false
       render json: @comment, status: 201
     else
       render 'post/show'

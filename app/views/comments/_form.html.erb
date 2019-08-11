@@ -1,29 +1,8 @@
 <%= form_for([@post, @post.comments.build]) do |f| %>
 
     <%= f.label "Reply to thread" %>
-    <%= f.text_area :content, class: "textarea" %>
+    <%= f.text_area :content, class: "textarea", required: true %>
 
     <%= f.submit class: "button", id: "subBtn" %>
 
 <% end %>
-
-<!-- <div id="commentResult">
-  <p id="commentBody"></p>
-</div>
-
-<script type="text/javascript" charset="utf-8">
-  $(function () {
-    $("#new_comment").submit(function(event) {
-      //prevent form from submitting the default way
-      event.preventDefault();
-      var values = $(this).serialize();
-
-      var posting = $.post(this.action, values);
-
-      posting.done(function(data) {
-        var comment = data;
-        $("#commentBody").text(comment["content"]);
-      });
-    });
-  });
-</script> -->
