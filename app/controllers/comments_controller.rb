@@ -12,7 +12,9 @@ class CommentsController < ApplicationController
   def show
     @comment = Comment.new
     @comment.post_id = @post.id
-    @post_comments = @post.comments
+    # @post_comments = @post.comments
+    @user = User.find(params[:user_id])
+		@comments = @user.comments
   end
 
   def create

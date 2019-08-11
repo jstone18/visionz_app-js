@@ -37,8 +37,9 @@ $(document).ready(function() {
 // })
 
 function Comment(comment) {
-  this.username = comment.user.username
+  this.username = comment.user.name
   this.comment = comment.content
+  // debugger;
 }
 
 // Prototype method
@@ -51,13 +52,7 @@ function Comment(comment) {
 
     $(".new_comment").on("submit", function(e){
       $.post(this.action, $(this).serialize(), function(comment) {
-        if (Array.isArray(comment)) {
-          var message = "";
-          comment.forEach(function(error) {
-            message += `${error}\n`
-          })
-          alert(message);
-        } else {
+
           const $ol = $("div.post-comments");
           const newComment = new Comment(comment);
           const commentHTML = newComment.formatComment();
@@ -67,11 +62,14 @@ function Comment(comment) {
             } else {
               $ol.append(commentHTML)
             }
-        }
+        
         $("#comment_content").val("");
       });
+
       e.preventDefault();
+
       })
+
 
 })
 
