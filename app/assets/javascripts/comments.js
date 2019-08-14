@@ -3,7 +3,6 @@ $(document).ready(function() {
     setupCreateComment();
   });
 
-
     // Comment clsss constructor
   class Comment {
     constructor(json) {
@@ -15,7 +14,6 @@ $(document).ready(function() {
       <em>${this.data.content}</em></blockquote></li>`
       return commentHTML
     }
-
   };
 
   // Form submission handler
@@ -51,6 +49,4 @@ $(document).ready(function() {
         alert("There is an error", resp);
       });
   };
-
-
 });
