@@ -1,49 +1,60 @@
 $(document).ready(function() {
-
-  $("a.load_comments").on("click", function(e) {
-
-    $.get(this.href).success(function(comments) {
-     var $ol = $("div.post-comments")
-     $ol.html("")
-
-     comments.forEach(function(comment) {
-      const oneComment = new Comment(comment)
-      const commentHTML = oneComment.formatComment()
-      $ol.append(commentHTML)
-     })
-    })
-    e.preventDefault();
+  $(function() {
+    setupCreateComment();
   });
 
-  // Comment Class
-  function Comment(comment) {
-    this.name = comment.user.name
-    this.comment = comment.content
+
+    // Comment clsss constructor
+  class Comment {
+    constructor(json) {
+      this.data = json
+    };
+
+    formatComment() {
+      let commentHTML = `<li><blockquote><strong>${this.data.user.name}</strong> says:
+      <em>${this.data.content}</em></blockquote></li>`
+      return commentHTML
+    }
+
+    updateHTML() {
+      $("#new-comment").text(this.data.user.name);
+      $("#new-comment").text(this.data.content);
+    }
   };
 
-  // Comment Prototype method
-  Comment.prototype.formatComment = function() {
-    commentHTML = `<li><blockquote>${this.comment}<footer> by: ${this.name}</footer></blockquote></li>`
-    return commentHTML
-  };
+  // Form submission handler
+  function setupCreateComment() {
+    $(".new_comment").submit(function(event) {
+      event.preventDefault();
 
-  //Submit comment using JSON and RAILS API
-  $(".new_comment").on("submit", function(e){
-    $.post(this.action, $(this).serialize(), function(comment) {
+      let data = $(this).serialize();
+      let url = $(this).attr("action");
 
-      const $ol = $("div.post-comments");
-      const newComment = new Comment(comment);
-      const commentHTML = newComment.formatComment();
-
-      if($(".no-comments").text() != '') {
-        $ol.html(commentHTML);
-      } else {
-        $ol.append(commentHTML)
-      }
+      createComment(url, data)
 
       $("#comment_content").val("");
-    })
-    e.preventDefault();
-  });
+    });
+  };
+
+  // Create Comment
+  function createComment(url, data) {
+    $.post(url, data, "json")
+      .done(json => {
+        let $ol = $("div.post-comments");
+        let myComment = new Comment(json);
+        let commentHTML = myComment.formatComment();
+
+        if($(".no-comments").text() != '') {
+          $ol.html(commentHTML);
+        } else {
+          $ol.append(commentHTML)
+        }
+        
+      })
+      .error(resp => {
+        alert("There is an error", resp);
+      });
+  };
+
 
 });

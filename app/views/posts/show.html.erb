@@ -39,10 +39,16 @@
 </div>
 
 <div id="comments">
-  <h3 class="comment_count"><%= pluralize(@post.comments.count, "Comment") %></h3>
+  <h3 class="comment_count">Comments</h3>
     <div class="post-comments">
       <% if @post.comments.any? %>
-          <h5><%= link_to "Load All Comments", post_comments_path(@post), :class => 'load_comments' %></h5>
+        <% @comments.each do |comment| %>
+        <li id="comment"><blockquote><strong><%= comment.user.name %></strong> says:
+          <em><%= comment.content %></em></blockquote></li>
+        <% end %>
+          <div id="new-comment">
+
+          </div>
       <% else %>
       <div class="no-comments">
             There are no comments for this Vision
