@@ -11,15 +11,11 @@ $(document).ready(function() {
     };
 
     formatComment() {
-      let commentHTML = `<li><blockquote><strong>${this.data.user.name}</strong> says:
+      let commentHTML = `<li><blockquote><strong>${this.data.user.username}</strong> says:
       <em>${this.data.content}</em></blockquote></li>`
       return commentHTML
     }
 
-    updateHTML() {
-      $("#new-comment").text(this.data.user.name);
-      $("#new-comment").text(this.data.content);
-    }
   };
 
   // Form submission handler
@@ -49,7 +45,7 @@ $(document).ready(function() {
         } else {
           $ol.append(commentHTML)
         }
-        
+
       })
       .error(resp => {
         alert("There is an error", resp);

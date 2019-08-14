@@ -116,13 +116,9 @@ header {
 	radius: .3rem;
 	background: white;
 	color: #9B9B9B;
-
 }
 
-
-
 	// Home
-
 .welcome {
 	font-family: Bellefair;
 	font-weight: 400;
@@ -244,7 +240,6 @@ header {
 }
 
 // Posts
-
 #post_show {
 	padding-top: 2rem;
 	.post_image_description {
@@ -366,7 +361,6 @@ header {
 }
 
 	// Comments
-
 #comments {
 	padding-bottom: 4rem;
 	width: 50%;
@@ -404,34 +398,9 @@ header {
 	}
 }
 
-.load_comments {
-	color: #9a8b8b;
-	font-family: Titillium Web;
-	&:hover {
-		color: #50A7C7;
-	}
-}
-
 .comment_label{
 	margin-top: 15px;
 	margin-bottom: -15px;
-}
-
-
-.tip {
-  width: 0px;
-  height: 0px;
-  position: absolute;
-  background: transparent;
-  border: 10px solid #ccc;
-}
-
-.tip-up {
-  top: -25px; /* Same as body margin top + border */
-  left: 10px;
-  border-right-color: transparent;
-  border-left-color: transparent;
-  border-top-color: transparent;
 }
 
 .dialogbox .body {

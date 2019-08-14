@@ -7,6 +7,7 @@ class UsersController < ApplicationController
     @posts = @user.posts.order(created_at: :desc)
     @user = User.find(params[:id])
     @post = Post.find(params[:id])
+    
     respond_to do |format|
       format.html { render :show }
       format.json { render json: @user, status: 200}

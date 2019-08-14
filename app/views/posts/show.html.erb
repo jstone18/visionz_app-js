@@ -43,11 +43,11 @@
     <div class="post-comments">
       <% if @post.comments.any? %>
         <% @comments.each do |comment| %>
-        <li id="comment"><blockquote><strong><%= comment.user.name %></strong> says:
+        <li id="comment"><blockquote><strong><%= comment.user.username %></strong> says:
           <em><%= comment.content %></em></blockquote></li>
         <% end %>
           <div id="new-comment">
-
+            <!-- New Comments created by AJAX call -->
           </div>
       <% else %>
       <div class="no-comments">
