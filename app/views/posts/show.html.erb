@@ -1,23 +1,31 @@
 <div id="post_show">
 
+  <!-- Prev & Next Buttons -->
   <p class="js-next" data-id="<%= @post.id %>">
     <%= link_to "Prev", post_path(@post.prev), class: "next-prev" %> |
     <%= link_to "Next", post_path(@post.next), class: "next-prev" %>
   </p>
 
+  <!-- Post Info -->
   <h1><%= @post.title %></h1>
   <p class="username">
     Shared by <%= link_to @post.user.name, user_path(@post.user), class: "name" %> <%= posted_at %> ago
   </p>
 
+  <!-- Post Image -->
   <div class="clearfix">
     <div class="post_image_description">
       <%= image_tag @post.image.url(:medium) %>
+
+      <!-- Post Description -->
       <div id="body-<%= @post.id %>" class="description">
         <%= truncate(@post.description, length: 150) %><br>
         <button class="primary-btn" id="js-more" data-id="<%= @post.id %>" type="button" name="button">Read More...</button>
       </div>
+
     </div>
+
+    <!-- Post Controls -->
     <div class="post_data">
       <%= link_to "Vist Link", @post.link, class: "button" %>
       <%= link_to like_post_path(@post), method: :get, class: "data" do %>
@@ -38,6 +46,7 @@
   </div>
 </div>
 
+<!-- Comment Section -->
 <div id="comments">
   <h3 class="comment_count">Comments</h3>
     <div class="post-comments">

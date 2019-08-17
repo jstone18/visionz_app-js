@@ -2,12 +2,11 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:edit, :update, :destroy]
 
-
   def show
     @posts = @user.posts.order(created_at: :desc)
     @user = User.find(params[:id])
     @post = Post.find(params[:id])
-    
+
     respond_to do |format|
       format.html { render :show }
       format.json { render json: @user, status: 200}
