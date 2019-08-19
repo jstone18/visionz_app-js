@@ -1,20 +1,19 @@
-<button id="load-posts" type="button" name="button">Load Posts</button>
-<div id="js-post">
+<% if user_signed_in? %>
+<div id="intro">
+  <p>Hello <%= current_user.name %></p>
+  <span>Share your inspirations and see what's inspiring others!</span><br>
+  <span>There are currently <%= @posts.count %> inspiring visions being shared!</span>
+</div>
+<% end %>
+
+
+<button class="button" id="load-posts" type="button" name="button">Load Visionz</button><br />
+<div id="js-post"><br>
 
 </div>
 
 
-
-
-<% if user_signed_in? %>
-  <div id="intro">
-    <p>Hello <%= current_user.name %></p>
-    <span>Share your inspirations and see what's inspiring others!</span><br>
-    <span>There are currently <%= @posts.count %> inspiring visions being shared!</span>
-  </div>
-<% end %>
-
-<div class="container">
+<!-- <div class="container">
   <div id="posts">
     <span id="pagination">
       <%= will_paginate @posts %>
@@ -43,4 +42,4 @@
       </div>
     <% end %>
   </div>
-</div>
+</div> -->

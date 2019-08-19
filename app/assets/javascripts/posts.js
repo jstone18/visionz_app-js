@@ -17,7 +17,7 @@ $("document").ready(function() {
         // debugger;
         url = "/posts/" + "${l.id}"
         return `
-        <a href="/posts/${l.id}"><h5>${l.title}</h5></a>
+        <li><blockquote><strong><a href="/posts/${l.id}"><h5>${l.title}</h5></a> by: ${l.user.username}</blockquote></li>
         `
       })
       $("#js-post").html(post)

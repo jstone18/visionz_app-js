@@ -461,5 +461,17 @@ header {
   list-style: none
 }
 
+#js-post {
+	padding: 1.5rem 1.5rem;
+	list-style: none;
+	a {
+		color: #969696;
+		&:hover {
+			color: #50A7C7;
+		}
+	}
+}
+
+
 
 @import "users";
